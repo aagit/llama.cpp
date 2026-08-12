@@ -129,6 +129,8 @@ void ggml_cuda_set_device(int device) {
     }
 
     CUDA_CHECK(cudaSetDevice(physical_device));
+
+    hipSetDeviceFlags(hipDeviceScheduleBlockingSync);
 }
 
 int ggml_cuda_get_device() {
